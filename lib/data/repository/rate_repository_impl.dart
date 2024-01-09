@@ -1,8 +1,9 @@
-import 'package:exchange_rate/data/data_source/exchange_rate_api.dart';
+
 import 'package:exchange_rate/data/dto/exchange_rate_dto.dart';
 import 'package:exchange_rate/data/mapper/rate_mapper.dart';
 import 'package:exchange_rate/data/model/rate_result.dart';
 
+import '../data_source/exchange_rate_api.dart';
 import 'interface/rate_repository.dart';
 
 class RateRepositoryImpl implements RateRepository {
@@ -16,7 +17,7 @@ class RateRepositoryImpl implements RateRepository {
   Future<RateResult> getRateResult(
       String baseCode, String targetCode, num amount) async {
     final ExchangeRateDto dto =
-        await api.getExchangeResult(baseCode, targetCode, amount);
+        await api.getExchangeLatestResult(baseCode, targetCode, amount);
 
     return dto.toRateResult();
   }

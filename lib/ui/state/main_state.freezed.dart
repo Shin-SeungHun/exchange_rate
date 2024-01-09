@@ -26,7 +26,7 @@ mixin _$MainState {
   num get targetMoney => throw _privateConstructorUsedError;
   String get baseCode => throw _privateConstructorUsedError;
   String get targetCode => throw _privateConstructorUsedError;
-  num get conversionRate => throw _privateConstructorUsedError;
+  Map<String, num> get conversionRate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $MainStateCopyWith<$Res> {
       num targetMoney,
       String baseCode,
       String targetCode,
-      num conversionRate});
+      Map<String, num> conversionRate});
 
   $RateResultCopyWith<$Res>? get rateResult;
 }
@@ -100,7 +100,7 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
       conversionRate: null == conversionRate
           ? _value.conversionRate
           : conversionRate // ignore: cast_nullable_to_non_nullable
-              as num,
+              as Map<String, num>,
     ) as $Val);
   }
 
@@ -132,7 +132,7 @@ abstract class _$$MainStateImplCopyWith<$Res>
       num targetMoney,
       String baseCode,
       String targetCode,
-      num conversionRate});
+      Map<String, num> conversionRate});
 
   @override
   $RateResultCopyWith<$Res>? get rateResult;
@@ -183,9 +183,9 @@ class __$$MainStateImplCopyWithImpl<$Res>
           : targetCode // ignore: cast_nullable_to_non_nullable
               as String,
       conversionRate: null == conversionRate
-          ? _value.conversionRate
+          ? _value._conversionRate
           : conversionRate // ignore: cast_nullable_to_non_nullable
-              as num,
+              as Map<String, num>,
     ));
   }
 }
@@ -200,7 +200,8 @@ class _$MainStateImpl with DiagnosticableTreeMixin implements _MainState {
       this.targetMoney = 1,
       this.baseCode = 'KRW',
       this.targetCode = 'USD',
-      this.conversionRate = 0});
+      final Map<String, num> conversionRate = const {}})
+      : _conversionRate = conversionRate;
 
   factory _$MainStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainStateImplFromJson(json);
@@ -222,9 +223,14 @@ class _$MainStateImpl with DiagnosticableTreeMixin implements _MainState {
   @override
   @JsonKey()
   final String targetCode;
+  final Map<String, num> _conversionRate;
   @override
   @JsonKey()
-  final num conversionRate;
+  Map<String, num> get conversionRate {
+    if (_conversionRate is EqualUnmodifiableMapView) return _conversionRate;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_conversionRate);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -262,14 +268,21 @@ class _$MainStateImpl with DiagnosticableTreeMixin implements _MainState {
                 other.baseCode == baseCode) &&
             (identical(other.targetCode, targetCode) ||
                 other.targetCode == targetCode) &&
-            (identical(other.conversionRate, conversionRate) ||
-                other.conversionRate == conversionRate));
+            const DeepCollectionEquality()
+                .equals(other._conversionRate, _conversionRate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, rateResult, isLoading, baseMoney,
-      targetMoney, baseCode, targetCode, conversionRate);
+  int get hashCode => Object.hash(
+      runtimeType,
+      rateResult,
+      isLoading,
+      baseMoney,
+      targetMoney,
+      baseCode,
+      targetCode,
+      const DeepCollectionEquality().hash(_conversionRate));
 
   @JsonKey(ignore: true)
   @override
@@ -293,7 +306,7 @@ abstract class _MainState implements MainState {
       final num targetMoney,
       final String baseCode,
       final String targetCode,
-      final num conversionRate}) = _$MainStateImpl;
+      final Map<String, num> conversionRate}) = _$MainStateImpl;
 
   factory _MainState.fromJson(Map<String, dynamic> json) =
       _$MainStateImpl.fromJson;
@@ -311,7 +324,7 @@ abstract class _MainState implements MainState {
   @override
   String get targetCode;
   @override
-  num get conversionRate;
+  Map<String, num> get conversionRate;
   @override
   @JsonKey(ignore: true)
   _$$MainStateImplCopyWith<_$MainStateImpl> get copyWith =>

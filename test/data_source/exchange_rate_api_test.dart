@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   test('api 테스트', () async {
     final ExchangeRateApi api = ExchangeRateApi();
-    ExchangeRateDto dto = await api.getExchangeResult('EUR','GDP',0.8412);
+    ExchangeRateDto dto = await api.getExchangeLatestResult('EUR','GDP',0.8412);
     // ExchangeRateDto dto2 = await api.getExchangeResult('USD');
 
     expect(dto, isNotNull);

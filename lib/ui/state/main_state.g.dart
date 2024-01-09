@@ -16,7 +16,10 @@ _$MainStateImpl _$$MainStateImplFromJson(Map<String, dynamic> json) =>
       targetMoney: json['targetMoney'] as num? ?? 1,
       baseCode: json['baseCode'] as String? ?? 'KRW',
       targetCode: json['targetCode'] as String? ?? 'USD',
-      conversionRate: json['conversionRate'] as num? ?? 0,
+      conversionRate: (json['conversionRate'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, e as num),
+          ) ??
+          const {},
     );
 
 Map<String, dynamic> _$$MainStateImplToJson(_$MainStateImpl instance) =>
