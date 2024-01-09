@@ -15,8 +15,8 @@ class _MainScreenState extends State<MainScreen> {
         leading: const FlutterLogo(),
         title: const Text('환율 계산기'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
             // 기준 통화 금액 입력 필드
