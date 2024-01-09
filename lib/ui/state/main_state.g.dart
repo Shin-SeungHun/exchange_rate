@@ -16,6 +16,7 @@ _$MainStateImpl _$$MainStateImplFromJson(Map<String, dynamic> json) =>
       targetMoney: json['targetMoney'] as num? ?? 1,
       baseCode: json['baseCode'] as String? ?? 'KRW',
       targetCode: json['targetCode'] as String? ?? 'USD',
+      conversionRate: json['conversionRate'] as num? ?? 0,
     );
 
 Map<String, dynamic> _$$MainStateImplToJson(_$MainStateImpl instance) =>
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$MainStateImplToJson(_$MainStateImpl instance) =>
       'targetMoney': instance.targetMoney,
       'baseCode': instance.baseCode,
       'targetCode': instance.targetCode,
+      'conversionRate': instance.conversionRate,
     };
