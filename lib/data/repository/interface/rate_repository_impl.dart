@@ -1,5 +1,5 @@
 import '../../model/rate_result.dart';
 
-abstract interface class RateRepositoryImpl {
+abstract interface class RateRepository {
   Future<RateResult> getRateResult(String baseCode, String targetCode, num amount);
 }
