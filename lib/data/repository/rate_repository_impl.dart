@@ -2,12 +2,13 @@ import 'package:exchange_rate/data/data_source/exchange_rate_api.dart';
 import 'package:exchange_rate/data/dto/exchange_rate_dto.dart';
 import 'package:exchange_rate/data/mapper/rate_mapper.dart';
 import 'package:exchange_rate/data/model/rate_result.dart';
-import 'package:exchange_rate/data/repository/interface/rate_repository_impl.dart';
 
-class RateRepository implements RateRepositoryImpl {
+import 'interface/rate_repository.dart';
+
+class RateRepositoryImpl implements RateRepository {
   final ExchangeRateApi api;
 
-  const RateRepository({
+  const RateRepositoryImpl({
     required this.api,
   });
 
