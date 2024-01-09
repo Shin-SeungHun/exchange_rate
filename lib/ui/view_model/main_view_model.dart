@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../data/repository/interface/rate_repository_impl.dart';
 
 class MainViewModel extends ChangeNotifier {
-  final RateRepository rateRepository;
+  final RateRepositoryImpl rateRepository;
 
   MainState _state = const MainState();
 

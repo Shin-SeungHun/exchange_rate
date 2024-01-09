@@ -7,5 +7,5 @@ final getIt = GetIt.instance;
 
 void diSetup() {
   getIt.registerSingleton<ApiConfig>(ApiConfig());
-  getIt.registerSingleton<MainViewModel>(MainViewModel(rateRepository: getIt<RateRepository>()));
+  getIt.registerSingleton<MainViewModel>(MainViewModel(rateRepository: getIt<RateRepositoryImpl>()));
 }
