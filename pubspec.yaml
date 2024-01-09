@@ -41,9 +41,9 @@ dependencies:
   go_router: ^13.0.1
   get_it: ^7.6.6
   freezed_annotation: ^2.4.1
+  flutter_dotenv: ^5.1.0
   envied: ^0.5.3
   env_flutter: ^0.1.4
-
 
 dev_dependencies:
   flutter_test:
