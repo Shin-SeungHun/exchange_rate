@@ -1,4 +1,4 @@
-class Rate {
+class ExchangeRateDto {
   String? result;
   String? provider;
   String? documentation;
@@ -11,7 +11,7 @@ class Rate {
   String? baseCode;
   Map<String, dynamic>? rates;
 
-  Rate({
+  ExchangeRateDto({
     this.result,
     this.provider,
     this.documentation,
@@ -24,7 +24,7 @@ class Rate {
     this.baseCode,
   });
 
-  Rate.fromJson(dynamic json) {
+  ExchangeRateDto.fromJson(dynamic json) {
     result = json['result'];
     provider = json['provider'];
     documentation = json['documentation'];
