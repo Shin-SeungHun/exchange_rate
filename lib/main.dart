@@ -1,8 +1,10 @@
+import 'package:exchange_rate/di/di_setup.dart';
 import 'package:flutter/material.dart';
 
 import 'router/routes.dart';
 
 void main() {
+  diSetup();
   runApp(const MyApp());
 }
 
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: router,
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
