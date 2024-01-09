@@ -16,6 +16,7 @@ class MainState with _$MainState {
     @Default(1) num targetMoney,
     @Default('KRW') String baseCode,
     @Default('USD') String targetCode,
+    @Default(0) num conversionRate,
   }) = _MainState;
 
   factory MainState.fromJson(Map<String, Object?> json) =>

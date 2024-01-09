@@ -10,6 +10,7 @@ class ExchangeRateDto {
   num? timeEolUnix;
   String? baseCode;
   Map<String, dynamic>? rates;
+  num? conversionRate;
 
   ExchangeRateDto({
     this.result,
@@ -22,6 +23,7 @@ class ExchangeRateDto {
     this.timeNextUpdateUtc,
     this.timeEolUnix,
     this.baseCode,
+    this.conversionRate,
   });
 
   ExchangeRateDto.fromJson(dynamic json) {
@@ -36,6 +38,7 @@ class ExchangeRateDto {
     timeEolUnix = json['time_eol_unix'];
     baseCode = json['base_code'];
     rates = json['rates'];
+    conversionRate = json['conversion_rate'];
   }
 
   Map<String, dynamic> toJson() {
@@ -51,6 +54,7 @@ class ExchangeRateDto {
     map['time_eol_unix'] = timeEolUnix;
     map['base_code'] = baseCode;
     map['rates'] = rates;
+    map['conversion_rate'] = conversionRate;
     return map;
   }
 }
