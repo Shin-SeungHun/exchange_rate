@@ -4,10 +4,10 @@ import 'package:exchange_rate/data/mapper/rate_mapper.dart';
 import 'package:exchange_rate/data/model/rate_result.dart';
 import 'package:exchange_rate/data/repository/interface/rate_repository_impl.dart';
 
-class RateRepositoryImpl implements RateRepository {
+class RateRepository implements RateRepositoryImpl {
   final ExchangeRateApi api;
 
-  const RateRepositoryImpl({
+  const RateRepository({
     required this.api,
   });
 
