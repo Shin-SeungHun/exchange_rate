@@ -7,7 +7,6 @@ class MainViewModel extends ChangeNotifier {
 
   MainState _state = const MainState();
 
-
   MainState get state => _state;
 
   MainViewModel({
@@ -16,6 +15,6 @@ class MainViewModel extends ChangeNotifier {
 
   Future<void> updateRateResult(String baseCode) async {
     final result = await rateRepository.getRateResult(baseCode);
-    _state =state.copyWith(rateResult: result);
+    _state = state.copyWith(rateResult: result);
   }
 }
