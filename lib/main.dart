@@ -1,22 +1,25 @@
+import 'package:exchange_rate/data/config/api_config.dart';
 import 'package:exchange_rate/di/di_setup.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import 'router/routes.dart';
 import 'package:env_flutter/env_flutter.dart';
+
 void main() async {
   diSetup();
   await init();
   runApp(const MyApp());
 }
 
- init() async {
-   await dotenv.load();
+init() async {
+  await dotenv.load();
 
-  //  print('''
-  //   dbPort: ${dotenv.env['DB_PORT']}
-  //   timeout: ${dotenv.env['TIMEOUT']}
-  // ''');
-
+  String key = dotenv.env['API_KEY']!;
+  ApiConfig apiConfig = GetIt.instance<ApiConfig>();
+  if (key.isNotEmpty) {
+    apiConfig.apikey = key;
+  }
 }
 
 class MyApp extends StatelessWidget {

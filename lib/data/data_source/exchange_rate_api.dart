@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class ExchangeRateApi {
   getExchangeResult(String baseCode) async {
     final response = await http
-        .get(Uri.parse('https://open.er-api.com/v6/latest/$baseCode'));
+        .get(Uri.parse('https://v6.exchangerate-api.com/v6//latest/$baseCode'));
     return ExchangeRateDto.fromJson(jsonDecode(response.body));
   }
 }

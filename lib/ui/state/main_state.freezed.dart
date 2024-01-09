@@ -26,6 +26,7 @@ mixin _$MainState {
   num get targetMoney => throw _privateConstructorUsedError;
   String get baseCode => throw _privateConstructorUsedError;
   String get targetCode => throw _privateConstructorUsedError;
+  num get conversionRate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +45,8 @@ abstract class $MainStateCopyWith<$Res> {
       num baseMoney,
       num targetMoney,
       String baseCode,
-      String targetCode});
+      String targetCode,
+      num conversionRate});
 
   $RateResultCopyWith<$Res>? get rateResult;
 }
@@ -68,6 +70,7 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
     Object? targetMoney = null,
     Object? baseCode = null,
     Object? targetCode = null,
+    Object? conversionRate = null,
   }) {
     return _then(_value.copyWith(
       rateResult: freezed == rateResult
@@ -94,6 +97,10 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
           ? _value.targetCode
           : targetCode // ignore: cast_nullable_to_non_nullable
               as String,
+      conversionRate: null == conversionRate
+          ? _value.conversionRate
+          : conversionRate // ignore: cast_nullable_to_non_nullable
+              as num,
     ) as $Val);
   }
 
@@ -124,7 +131,8 @@ abstract class _$$MainStateImplCopyWith<$Res>
       num baseMoney,
       num targetMoney,
       String baseCode,
-      String targetCode});
+      String targetCode,
+      num conversionRate});
 
   @override
   $RateResultCopyWith<$Res>? get rateResult;
@@ -147,6 +155,7 @@ class __$$MainStateImplCopyWithImpl<$Res>
     Object? targetMoney = null,
     Object? baseCode = null,
     Object? targetCode = null,
+    Object? conversionRate = null,
   }) {
     return _then(_$MainStateImpl(
       rateResult: freezed == rateResult
@@ -173,6 +182,10 @@ class __$$MainStateImplCopyWithImpl<$Res>
           ? _value.targetCode
           : targetCode // ignore: cast_nullable_to_non_nullable
               as String,
+      conversionRate: null == conversionRate
+          ? _value.conversionRate
+          : conversionRate // ignore: cast_nullable_to_non_nullable
+              as num,
     ));
   }
 }
@@ -186,7 +199,8 @@ class _$MainStateImpl with DiagnosticableTreeMixin implements _MainState {
       this.baseMoney = 1,
       this.targetMoney = 1,
       this.baseCode = 'KRW',
-      this.targetCode = 'USD'});
+      this.targetCode = 'USD',
+      this.conversionRate = 0});
 
   factory _$MainStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainStateImplFromJson(json);
@@ -208,10 +222,13 @@ class _$MainStateImpl with DiagnosticableTreeMixin implements _MainState {
   @override
   @JsonKey()
   final String targetCode;
+  @override
+  @JsonKey()
+  final num conversionRate;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'MainState(rateResult: $rateResult, isLoading: $isLoading, baseMoney: $baseMoney, targetMoney: $targetMoney, baseCode: $baseCode, targetCode: $targetCode)';
+    return 'MainState(rateResult: $rateResult, isLoading: $isLoading, baseMoney: $baseMoney, targetMoney: $targetMoney, baseCode: $baseCode, targetCode: $targetCode, conversionRate: $conversionRate)';
   }
 
   @override
@@ -224,7 +241,8 @@ class _$MainStateImpl with DiagnosticableTreeMixin implements _MainState {
       ..add(DiagnosticsProperty('baseMoney', baseMoney))
       ..add(DiagnosticsProperty('targetMoney', targetMoney))
       ..add(DiagnosticsProperty('baseCode', baseCode))
-      ..add(DiagnosticsProperty('targetCode', targetCode));
+      ..add(DiagnosticsProperty('targetCode', targetCode))
+      ..add(DiagnosticsProperty('conversionRate', conversionRate));
   }
 
   @override
@@ -243,13 +261,15 @@ class _$MainStateImpl with DiagnosticableTreeMixin implements _MainState {
             (identical(other.baseCode, baseCode) ||
                 other.baseCode == baseCode) &&
             (identical(other.targetCode, targetCode) ||
-                other.targetCode == targetCode));
+                other.targetCode == targetCode) &&
+            (identical(other.conversionRate, conversionRate) ||
+                other.conversionRate == conversionRate));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, rateResult, isLoading, baseMoney,
-      targetMoney, baseCode, targetCode);
+      targetMoney, baseCode, targetCode, conversionRate);
 
   @JsonKey(ignore: true)
   @override
@@ -272,7 +292,8 @@ abstract class _MainState implements MainState {
       final num baseMoney,
       final num targetMoney,
       final String baseCode,
-      final String targetCode}) = _$MainStateImpl;
+      final String targetCode,
+      final num conversionRate}) = _$MainStateImpl;
 
   factory _MainState.fromJson(Map<String, dynamic> json) =
       _$MainStateImpl.fromJson;
@@ -289,6 +310,8 @@ abstract class _MainState implements MainState {
   String get baseCode;
   @override
   String get targetCode;
+  @override
+  num get conversionRate;
   @override
   @JsonKey(ignore: true)
   _$$MainStateImplCopyWith<_$MainStateImpl> get copyWith =>
